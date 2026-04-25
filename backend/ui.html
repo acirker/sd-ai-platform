@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SD AI Dashboard</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    textarea { width: 100%; height: 100px; }
+    button { padding: 8px 14px; margin: 5px; }
+
+    .card {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 6px;
+    }
+
+    .approve { color: green; font-weight: bold; }
+    .deny { color: red; font-weight: bold; }
+    .review { color: orange; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h2>SD AI Decision Dashboard</h2>
+
+<div>
+  <button onclick="loadPreset('basic')">Basic</button>
+  <button onclick="loadPreset('edge')">Edge Cases</button>
+  <button onclick="loadPreset('abuse')">Abuse Scenarios</button>
+</div>
+
+<textarea id="inputs"></textarea>
+
+<br>
+<button onclick="runSimulation()">Run Simulation</button>
+<button onclick="exportCSV()">Export CSV</button>
+
+<div id="results"></div>
+
+<script>
+const presets = {
+  basic: ["gym membership", "wheelchair", "vacation"],
+  edge: ["therapy session", "home gym equipment", "massage"],
+  abuse: ["luxury resort", "spa retreat", "gaming console"]
+};
+
+function loadPreset(name) {
+  document.getElementById("inputs").value = presets[name].join("\n");
+}
+
+function colorClass(d) {
+  if (d === "APPROVE") return "approve";
+  if (d === "DENY") return "deny";
+  return "review";
+}
+
+let lastResults = [];
+
+async function runSimulation() {
+  const lines = document.getElementById("inputs").value
+    .split("\n")
+    .map(l => l.trim())
+    .filter(l => l.length > 0);
+
+  const res = await fetch("/simulate", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ inputs: lines })
+  });
+
+  const data = await res.json();
+  lastResults = data;
+
+  const container = document.getElementById("results");
+  container.innerHTML = "";
+
+  data.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "card";
+
+    const d = item.resolution.decision;
+    const cls = colorClass(d);
+
+    div.innerHTML = `
+      <h3>${item.input}</h3>
+      <p>Resolution: <span class="${cls}">${d}</span>
+      (confidence: ${item.resolution.confidence})</p>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+function exportCSV() {
+  let csv = "input,decision,confidence\n";
+
+  lastResults.forEach(r => {
+    csv += `${r.input},${r.resolution.decision},${r.resolution.confidence}\n`;
+  });
+
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "results.csv";
+  a.click();
+}
+</script>
+
+</body>
+</html>

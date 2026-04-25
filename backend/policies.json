@@ -1,0 +1,24 @@
+{
+  "FI_A": {
+    "weight": 0.9,
+    "rules": [
+      {
+        "keyword": "gym",
+        "decision": "DENY",
+        "reason": "Not medically necessary",
+        "policy": "Section 2.1 – Wellness services are excluded unless prescribed by a physician"
+      }
+    ]
+  },
+  "FI_B": {
+    "weight": 0.1,
+    "rules": [
+      {
+        "keyword": "gym",
+        "decision": "REVIEW",
+        "reason": "May qualify under wellness",
+        "policy": "Clause 4.3 – Wellness benefits may be approved on a case-by-case basis"
+      }
+    ]
+  }
+}

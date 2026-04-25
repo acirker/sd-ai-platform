@@ -1,0 +1,209 @@
+[
+  {
+    "timestamp": "2026-04-25 12:26:33.114605",
+    "old": {
+      "FI_A": {
+        "weight": 0.7,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "APPROVE",
+            "reason": "Wellness benefit allowed"
+          },
+          {
+            "keyword": "wheelchair",
+            "decision": "APPROVE",
+            "reason": "Medical equipment covered"
+          },
+          {
+            "keyword": "vacation",
+            "decision": "DENY",
+            "reason": "Not an eligible expense"
+          }
+        ]
+      },
+      "FI_B": {
+        "weight": 0.3,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "REVIEW",
+            "reason": "May be considered recreational"
+          },
+          {
+            "keyword": "wheelchair",
+            "decision": "APPROVE",
+            "reason": "Medical necessity"
+          },
+          {
+            "keyword": "vacation",
+            "decision": "DENY",
+            "reason": "Personal expense not allowed"
+          }
+        ]
+      }
+    },
+    "new": {
+      "additionalProp1": {}
+    }
+  },
+  {
+    "timestamp": "2026-04-25 12:26:34.907691",
+    "old": {
+      "additionalProp1": {}
+    },
+    "new": {
+      "additionalProp1": {}
+    }
+  },
+  {
+    "timestamp": "2026-04-25 12:26:59.313184",
+    "old": {
+      "additionalProp1": {}
+    },
+    "new": {
+      "FI_A": {
+        "weight": 0.9,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "DENY",
+            "reason": "New policy"
+          }
+        ]
+      },
+      "FI_B": {
+        "weight": 0.1,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "REVIEW",
+            "reason": "Still unclear"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-25 12:27:01.827621",
+    "old": {
+      "FI_A": {
+        "weight": 0.9,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "DENY",
+            "reason": "New policy"
+          }
+        ]
+      },
+      "FI_B": {
+        "weight": 0.1,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "REVIEW",
+            "reason": "Still unclear"
+          }
+        ]
+      }
+    },
+    "new": {
+      "FI_A": {
+        "weight": 0.9,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "DENY",
+            "reason": "New policy"
+          }
+        ]
+      },
+      "FI_B": {
+        "weight": 0.1,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "REVIEW",
+            "reason": "Still unclear"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-25 12:34:59.404511",
+    "old": {
+      "FI_A": {
+        "weight": 0.9,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "DENY",
+            "reason": "New policy"
+          }
+        ]
+      },
+      "FI_B": {
+        "weight": 0.1,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "REVIEW",
+            "reason": "Still unclear"
+          }
+        ]
+      }
+    },
+    "new": {
+      "additionalProp1": {}
+    }
+  },
+  {
+    "timestamp": "2026-04-25 12:53:37.353730",
+    "old": {
+      "FI_A": {
+        "weight": 0.9,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "DENY",
+            "reason": "New policy"
+          }
+        ]
+      },
+      "FI_B": {
+        "weight": 0.1,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "REVIEW",
+            "reason": "Still unclear"
+          }
+        ]
+      }
+    },
+    "new": {
+      "FI_A": {
+        "weight": 0.9,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "DENY",
+            "reason": "New policy"
+          }
+        ]
+      },
+      "FI_B": {
+        "weight": 0.1,
+        "rules": [
+          {
+            "keyword": "gym",
+            "decision": "REVIEW",
+            "reason": "Still unclear"
+          }
+        ]
+      }
+    }
+  }
+]
